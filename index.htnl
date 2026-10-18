@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Excuse Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            color: #58a6ff;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        #excuse {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d1117;
+            border: 1px dashed #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            color: #f0f6fc;
+        }
+        button {
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2ea043;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 Dev Excuse Generator</h1>
+        <div id="excuse">Click the button below when you need a quick technical alibi!</div>
+        <button onclick="generateExcuse()">Generate Excuse</button>
+        <footer>Built with code and a bit of humor</footer>
+    </div>
+
+    <script>
+        const excuses = [
+            "It worked fine on my local machine. Must be a production anomaly.",
+            "That's not a bug, it's an undocumented feature.",
+            "Have you tried clearing your browser cache and restarting?",
+            "The API documentation was completely wrong, obviously.",
+            "It must be a DNS issue. It's always DNS.",
+            "The compiler is just having a bad day today.",
+            "I wrote unit tests for it, but the tests were feeling shy.",
+            "A cosmic ray must have flipped a bit in the server memory."
+        ];
+
+        function generateExcuse() {
+            const randomIndex = Math.floor(Math.random() * excuses.length);
+            const excuseBox = document.getElementById('excuse');
+            
+            excuseBox.style.opacity = '0';
+            setTimeout(() => {
+                excuseBox.innerText = excuses[randomIndex];
+                excuseBox.style.opacity = '1';
+            }, 150);
+        }
+    </script>
+</body>
+</html>
